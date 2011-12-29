@@ -10,6 +10,7 @@ setup(
     license = "Apache 2.0",
     description = "Small qna app for Django",
     long_description = read("README"),
+    url = "https://github.com/bazukas/django-qna",
     author = "Azat Khasanshin",
     author_email = "azatkhasanshin@gmail.com",
     packages = find_packages("src"),
