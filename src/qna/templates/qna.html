@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <style type="text/css" media="screen">
+    /* <![CDATA[ */
+    	.vote{
+          overflow: hidden;
+          width: inherit;
+          height: 35px;
+          background-image: url(qna.png);
+          background-repeat: no-repeat;
+          text-indent: -9999em;
+          font-size: 1px;
+          display: block;
+        }
+        .vote.up{
+          background-position: 3px 0px;
+        }
+        .vote.down{
+          background-position: 3px -30px;
+        }
+        .rating{
+          font-size: 18px;
+          font-weight: bold;
+          width: 40px;
+          text-align: center;
+        }
+        .rating.positive{
+          color: #0b8018;
+        }
+        .rating.negative{
+          color: #c32b2b;
+        }
+        .answer{
+          border-bottom: 1px solid #CCC;
+          padding-bottom:10px;
+          padding-top: 15px;
+        }
+        .answers-count{
+          border-bottom: 1px solid #CCC;
+          margin-left: -20px;
+        }
+        .question{
+          padding-bottom:10px;
+          padding-top: 15px;
+        }
+        .meta-cell{
+          margin: 10px;
+        }
+        .tags a:hover{
+          color: #fff;
+          text-decoration: none;
+        }
+        .tags .label:hover{
+          background-color: #0069D6;
+        }
+    /* ]]> */
+    </style>
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          <div class="span12">
+            <div class="row question">
+              <div class="span1 vote-cell">
+                <a href="#" class="vote up">+</a>
+                <div class="rating positive">9</div>
+                <a href="#" class="vote down">-</a>
+              </div>
+              <div class="span11 question-cell">
+                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</h2>
+                <div class="text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a eros mauris, eu venenatis mauris. Nulla iaculis imperdiet pharetra. Nulla facilisi. Etiam egestas metus ut lectus vestibulum in elementum augue congue. Vivamus hendrerit, odio ut pharetra dictum, diam orci malesuada nisl, et egestas lacus lacus at ipsum. Etiam at nulla tortor, id scelerisque dui. In cursus tincidunt mauris, nec ullamcorper quam posuere vel.
+                </div>
+                <div class="tags">
+                  <a href="#" class="label notice">Lorem</a>
+                  <a href="#" class="label notice">ipsum</a>
+                </div>
+                <div class="meta-cell pull-right">
+                  Asked by <a href="#" class="askedby">Radik</a>
+                  <span class="date">31 Dec 2011</span>
+                </div>
+              </div>
+            </div>
+            <div class="answers-count"><h3>5 answers</h3></div>
+            <div class="row answer">
+              <div class="span1 vote-cell">
+                <a href="#" class="vote up">+</a>
+                <div class="rating positive">999</div>
+                <a href="#" class="vote down">-</a>
+                <span class="label success" title="The question owner accepted this as the best answer Dec 31 at 21:30">Best</span>
+              </div>
+              <div class="span11 answer-cell">
+                <div class="text">
+                  Integer egestas tempus turpis dapibus sollicitudin. Vivamus egestas magna quis velit feugiat vel euismod leo tincidunt. Donec auctor ullamcorper risus, quis bibendum purus feugiat vestibulum. Duis vitae ullamcorper diam. Phasellus arcu eros, rhoncus sed lobortis nec, sollicitudin et ligula.
+                  <pre>
+public class HelloWorld{
+  public static void main(String[] args){
+    System.out.println("Hello, World!");
+  }
+}
+                  </pre>
+                </div>
+                <div class="meta-cell pull-right">
+                  Answered by <a href="#" class="answeredby">Radik</a>
+                  <span class="date">31 Dec 2011</span>
+                </div>
+              </div>
+            </div>
+            <div class="row answer">
+              <div class="span1 vote-cell">
+                <a href="#" class="vote up">+</a>
+                <div class="rating positive">3</div>
+                <a href="#" class="vote down">-</a>
+              </div>
+              <div class="span11 answer-cell">
+                <div class="text">
+                  Integer egestas tempus turpis dapibus sollicitudin. Vivamus egestas magna quis velit feugiat vel euismod leo tincidunt. Donec auctor ullamcorper risus, quis bibendum purus feugiat vestibulum. Duis vitae ullamcorper diam. Phasellus arcu eros, rhoncus sed lobortis nec, sollicitudin et ligula.
+                </div>
+                <div class="meta-cell pull-right">
+                  Answered by <a href="#" class="answeredby">Radik</a>
+                  <span class="date">31 Dec 2011</span>
+                </div>
+              </div>
+            </div>
+            <div class="row answer">
+              <div class="span1 vote-cell">
+                <a href="#" class="vote up">+</a>
+                <div class="rating positive">2</div>
+                <a href="#" class="vote down">-</a>
+              </div>
+              <div class="span11 answer-cell">
+                <div class="text">
+                  Integer egestas tempus turpis dapibus sollicitudin. Vivamus egestas magna quis velit feugiat vel euismod leo tincidunt. Donec auctor ullamcorper risus, quis bibendum purus feugiat vestibulum. Duis vitae ullamcorper diam. Phasellus arcu eros, rhoncus sed lobortis nec, sollicitudin et ligula.
+                </div>
+                <div class="meta-cell pull-right">
+                  Answered by <a href="#" class="answeredby">Radik</a>
+                  <span class="date">31 Dec 2011</span>
+                </div>
+              </div>
+            </div>
+            <div class="row answer">
+              <div class="span1 vote-cell">
+                <a href="#" class="vote up">+</a>
+                <div class="rating positive">1</div>
+                <a href="#" class="vote down">-</a>
+              </div>
+              <div class="span11 answer-cell">
+                <div class="text">
+                  Integer egestas tempus turpis dapibus sollicitudin. Vivamus egestas magna quis velit feugiat vel euismod leo tincidunt. Donec auctor ullamcorper risus, quis bibendum purus feugiat vestibulum. Duis vitae ullamcorper diam. Phasellus arcu eros, rhoncus sed lobortis nec, sollicitudin et ligula.
+                </div>
+                <div class="meta-cell pull-right">
+                  Answered by <a href="#" class="answeredby">Radik</a>
+                  <span class="date">31 Dec 2011</span>
+                </div>
+              </div>
+            </div>
+            <div class="row answer">
+              <div class="span1 vote-cell">
+                <a href="#" class="vote up">+</a>
+                <div class="rating negative">-10</div>
+                <a href="#" class="vote down">-</a>
+              </div>
+              <div class="span11 answer-cell">
+                <div class="text">
+                  Integer egestas tempus turpis dapibus sollicitudin. Vivamus egestas magna quis velit feugiat vel euismod leo tincidunt. Donec auctor ullamcorper risus, quis bibendum purus feugiat vestibulum. Duis vitae ullamcorper diam. Phasellus arcu eros, rhoncus sed lobortis nec, sollicitudin et ligula.
+                </div>
+                <div class="meta-cell pull-right">
+                  Answered by <a href="#" class="answeredby">Radik</a>
+                  <span class="date">31 Dec 2011</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span4"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
