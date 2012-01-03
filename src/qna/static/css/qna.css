@@ -3,7 +3,7 @@
           overflow: hidden;
           width: inherit;
           height: 35px;
-          background-image: url(qna.png);
+          background-image: url("../img/qna.png");
           background-repeat: no-repeat;
           text-indent: -9999em;
           font-size: 1px;

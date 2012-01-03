@@ -1,6 +1,10 @@
 import os
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 
+DEBUG = True
+
+SITE_ID = 1
+
 DATABASE_ENGINE = 'sqlite3'
 DATABASE_NAME = '/tmp/qna.db'
 
@@ -39,7 +43,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'qna.urls'
+ROOT_URLCONF = 'qna.testurls'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
