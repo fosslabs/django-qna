@@ -1,7 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
 from django.utils.translation import ugettext_lazy as _
 from tagging.fields import TagField
 
@@ -32,23 +30,3 @@ class Answer(models.Model):
     class Meta:
         verbose_name = _("Answer")
         verbose_name_plural = _("Answers")
-
-class Comment(models.Model):
-    text = models.TextField(_("Comment text"))
-    date = models.DateTimeField(_("Creation date"))
-    user = models.ForeignKey(User, verbose_name=_("User"))
-
-    def __unicode__(self):
-        return self.text[0:20]
-
-    class Meta:
-        verbose_name = _("Comment")
-        verbose_name_plural = _("Comments")
-
-class Rating(models.Model):
-    positive = models.PositiveIntegerField()
-    negative = models.PositiveIntegerField()
-    content_type = models.ForeignKey(ContentType)
-    object_id = models.PositiveIntegerField()
-    content_object = generic.GenericForeignKey()
-    user = models.ForeignKey(User)

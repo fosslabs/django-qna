@@ -1,0 +1,4 @@
+required applications:
+- django-tagging
+- django-voting
+- django.contrib.comments
