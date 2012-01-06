@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/qna.css" type="text/css" charset="utf-8" />
-    
-  </head>
-  <body>
-    <div class="container">
-      <div class="content">
+{% extends "base.html" %}
+{% block title %}{{question.title}}{% endblock %}
+{% block content %}
         <div class="row">
           <div class="span12">
             <div class="row question">
@@ -18,17 +10,18 @@
                 <a href="#" class="vote down">-</a>
               </div>
               <div class="span11 question-cell">
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</h2>
+                <h2>{{question.title}}</h2>
                 <div class="txt">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a eros mauris, eu venenatis mauris. Nulla iaculis imperdiet pharetra. Nulla facilisi. Etiam egestas metus ut lectus vestibulum in elementum augue congue. Vivamus hendrerit, odio ut pharetra dictum, diam orci malesuada nisl, et egestas lacus lacus at ipsum. Etiam at nulla tortor, id scelerisque dui. In cursus tincidunt mauris, nec ullamcorper quam posuere vel.
+                  {{question.text}}
                 </div>
                 <div class="tags">
-                  <a href="#" class="label notice">Lorem</a>
-                  <a href="#" class="label notice">ipsum</a>
+                  {% for tag in question.tags %}
+                  <a href="#" class="label notice">{{ tag }}</a>
+                  {% endfor %}
                 </div>
                 <div class="meta-cell pull-right">
-                  Asked by <a href="#" class="askedby">Radik</a>
-                  <span class="date">31 Dec 2011</span>
+                  Asked by <a href="#" class="askedby">{{question.user.username}}</a>
+                  <span class="date">{{question.date}}</span>
                 </div>
               </div>
             </div>
@@ -124,7 +117,4 @@ public class HelloWorld{
           </div>
           <div class="span4"></div>
         </div>
-      </div>
-    </div>
-  </body>
-</html>
+{% endblock %}
