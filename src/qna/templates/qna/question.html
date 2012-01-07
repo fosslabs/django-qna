@@ -1,4 +1,6 @@
-{% extends "base.html" %}
+{% extends "qna/base.html" %}
+{% load tagging_tags %}
+{% load voting_tags %}
 {% block title %}{{question.title}}{% endblock %}
 {% block content %}
         <div class="row">
@@ -15,9 +17,14 @@
                   {{question.text}}
                 </div>
                 <div class="tags">
-                  {% for tag in question.tags %}
-                  <a href="#" class="label notice">{{ tag }}</a>
-                  {% endfor %}
+                  {% tags_for_object question as tag_list %}
+                  {% if tag_list %}
+                      <div class="tags">
+                          {% for tag in tag_list %}
+                              <a href="#" class="label notice">{{ tag.name }}</a>
+                          {% endfor %}
+                      </div>
+                  {% endif %}
                 </div>
                 <div class="meta-cell pull-right">
                   Asked by <a href="#" class="askedby">{{question.user.username}}</a>

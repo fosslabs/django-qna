@@ -6,7 +6,7 @@ DEBUG = True
 SITE_ID = 1
 
 DATABASE_ENGINE = 'sqlite3'
-DATABASE_NAME = '/tmp/qna.db'
+DATABASE_NAME = os.path.join(PROJECT_PATH, '../../qna.db')
 
 USE_I18N = True
 USE_L10N = True

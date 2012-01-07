@@ -11,6 +11,10 @@ class Question(models.Model):
     date = models.DateTimeField(_("Creation date"))
     user = models.ForeignKey(User, verbose_name=_("User"))
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('qna.views.question', [self.id])
+
     def __unicode__(self):
         return self.title
 
