@@ -31,96 +31,29 @@
                   <span class="date">{{question.date}}</span>
                 </div>
               </div>
-            </div>
-            <div class="answers-count"><h3>5 answers</h3></div>
-            <div class="row answer">
-              <div class="span1 vote-cell">
-                <a href="#" class="vote up">+</a>
-                <div class="rating positive">999</div>
-                <a href="#" class="vote down">-</a>
-                <span class="label success" title="The question owner accepted this as the best answer Dec 31 at 21:30">Best</span>
-              </div>
-              <div class="span11 answer-cell">
-                <div class="txt">
-                  Integer egestas tempus turpis dapibus sollicitudin. Vivamus egestas magna quis velit feugiat vel euismod leo tincidunt. Donec auctor ullamcorper risus, quis bibendum purus feugiat vestibulum. Duis vitae ullamcorper diam. Phasellus arcu eros, rhoncus sed lobortis nec, sollicitudin et ligula.
-                  <pre>
-public class HelloWorld{
-  public static void main(String[] args){
-    System.out.println("Hello, World!");
-  }
-}
-                  </pre>
-                </div>
-                <div class="meta-cell pull-right">
-                  Answered by <a href="#" class="answeredby">Radik</a>
-                  <span class="date">31 Dec 2011</span>
-                </div>
-              </div>
-            </div>
+            </div><!-- question -->
+            <div class="answers-count"><h3>{{ question.answer_set.count }} answers</h3></div>
+            {% for answer in answer_list %}
             <div class="row answer">
               <div class="span1 vote-cell">
                 <a href="#" class="vote up">+</a>
                 <div class="rating positive">3</div>
                 <a href="#" class="vote down">-</a>
+                {% if answer.pk == question.correct_answer %}
+                <span class="label success" title="The question owner accepted this as the best answer Dec 31 at 21:30">Best</span>
+                {% endif %}
               </div>
               <div class="span11 answer-cell">
                 <div class="txt">
-                  Integer egestas tempus turpis dapibus sollicitudin. Vivamus egestas magna quis velit feugiat vel euismod leo tincidunt. Donec auctor ullamcorper risus, quis bibendum purus feugiat vestibulum. Duis vitae ullamcorper diam. Phasellus arcu eros, rhoncus sed lobortis nec, sollicitudin et ligula.
+                  {{ answer.text }}
                 </div>
                 <div class="meta-cell pull-right">
-                  Answered by <a href="#" class="answeredby">Radik</a>
-                  <span class="date">31 Dec 2011</span>
+                  Answered by <a href="#" class="answeredby">{{ answer.user.username }}</a>
+                  <span class="date">{{ answer.date }}</span>
                 </div>
               </div>
             </div>
-            <div class="row answer">
-              <div class="span1 vote-cell">
-                <a href="#" class="vote up">+</a>
-                <div class="rating positive">2</div>
-                <a href="#" class="vote down">-</a>
-              </div>
-              <div class="span11 answer-cell">
-                <div class="txt">
-                  Integer egestas tempus turpis dapibus sollicitudin. Vivamus egestas magna quis velit feugiat vel euismod leo tincidunt. Donec auctor ullamcorper risus, quis bibendum purus feugiat vestibulum. Duis vitae ullamcorper diam. Phasellus arcu eros, rhoncus sed lobortis nec, sollicitudin et ligula.
-                </div>
-                <div class="meta-cell pull-right">
-                  Answered by <a href="#" class="answeredby">Radik</a>
-                  <span class="date">31 Dec 2011</span>
-                </div>
-              </div>
-            </div>
-            <div class="row answer">
-              <div class="span1 vote-cell">
-                <a href="#" class="vote up">+</a>
-                <div class="rating positive">1</div>
-                <a href="#" class="vote down">-</a>
-              </div>
-              <div class="span11 answer-cell">
-                <div class="txt">
-                  Integer egestas tempus turpis dapibus sollicitudin. Vivamus egestas magna quis velit feugiat vel euismod leo tincidunt. Donec auctor ullamcorper risus, quis bibendum purus feugiat vestibulum. Duis vitae ullamcorper diam. Phasellus arcu eros, rhoncus sed lobortis nec, sollicitudin et ligula.
-                </div>
-                <div class="meta-cell pull-right">
-                  Answered by <a href="#" class="answeredby">Radik</a>
-                  <span class="date">31 Dec 2011</span>
-                </div>
-              </div>
-            </div>
-            <div class="row answer">
-              <div class="span1 vote-cell">
-                <a href="#" class="vote up">+</a>
-                <div class="rating negative">-10</div>
-                <a href="#" class="vote down">-</a>
-              </div>
-              <div class="span11 answer-cell">
-                <div class="txt">
-                  Integer egestas tempus turpis dapibus sollicitudin. Vivamus egestas magna quis velit feugiat vel euismod leo tincidunt. Donec auctor ullamcorper risus, quis bibendum purus feugiat vestibulum. Duis vitae ullamcorper diam. Phasellus arcu eros, rhoncus sed lobortis nec, sollicitudin et ligula.
-                </div>
-                <div class="meta-cell pull-right">
-                  Answered by <a href="#" class="answeredby">Radik</a>
-                  <span class="date">31 Dec 2011</span>
-                </div>
-              </div>
-            </div>
+            {% endfor %}
           </div>
           <div class="span4"></div>
         </div>

@@ -12,11 +12,11 @@
             <div class="stats">
               <div class="votes">
                 {% dict_entry_for_item question from score_dict as score %}
-                <span class="count">{{ score.score|default:0 }}</span>
+                <span class="count">{{ score.score|default:0 }}</span><br />
                 votes
               </div>
               <div class="answers">
-                <span class="count">{{ question.answer_set.count }}</span>
+                <span class="count">{{ question.answer_set.count }}</span><br />
                 answers
               </div>
             </div><!-- stats -->
