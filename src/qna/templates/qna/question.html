@@ -1,6 +1,8 @@
 {% extends "qna/base.html" %}
 {% load tagging_tags %}
 {% load voting_tags %}
+{% score_for_object question as score %}
+{% scores_for_objects question.answer_set.all as answer_score_dict %}
 {% block title %}{{question.title}}{% endblock %}
 {% block content %}
         <div class="row">
@@ -8,7 +10,7 @@
             <div class="row question">
               <div class="span1 vote-cell">
                 <a href="#" class="vote up">+</a>
-                <div class="rating positive">9</div>
+                <div class="rating positive">{{ score.score|default:0 }}</div>
                 <a href="#" class="vote down">-</a>
               </div>
               <div class="span11 question-cell">
@@ -33,26 +35,27 @@
               </div>
             </div><!-- question -->
             <div class="answers-count"><h3>{{ question.answer_set.count }} answers</h3></div>
-            {% for answer in answer_list %}
-            <div class="row answer">
-              <div class="span1 vote-cell">
-                <a href="#" class="vote up">+</a>
-                <div class="rating positive">3</div>
-                <a href="#" class="vote down">-</a>
-                {% if answer.pk == question.correct_answer %}
-                <span class="label success" title="The question owner accepted this as the best answer Dec 31 at 21:30">Best</span>
-                {% endif %}
-              </div>
-              <div class="span11 answer-cell">
-                <div class="txt">
-                  {{ answer.text }}
+            {% for answer in question.answer_set.all %}
+              {% dict_entry_for_item answer from answer_score_dict as answer_score %}
+              <div class="row answer">
+                <div class="span1 vote-cell">
+                  <a href="#" class="vote up">+</a>
+                  <div class="rating positive">{{ answer_score.score|default:0 }}</div>
+                  <a href="#" class="vote down">-</a>
+                  {% if answer == question.correct_answer %}
+                  <span class="label success" title="The question owner accepted this as the best answer Dec 31 at 21:30">Best</span>
+                  {% endif %}
                 </div>
-                <div class="meta-cell pull-right">
-                  Answered by <a href="#" class="answeredby">{{ answer.user.username }}</a>
-                  <span class="date">{{ answer.date }}</span>
+                <div class="span11 answer-cell">
+                  <div class="txt">
+                    {{ answer.text }}
+                  </div>
+                  <div class="meta-cell pull-right">
+                    Answered by <a href="#" class="answeredby">{{ answer.user.username }}</a>
+                    <span class="date">{{ answer.date }}</span>
+                  </div>
                 </div>
               </div>
-            </div>
             {% endfor %}
           </div>
           <div class="span4"></div>

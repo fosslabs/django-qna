@@ -13,11 +13,11 @@
               <div class="votes">
                 {% dict_entry_for_item question from score_dict as score %}
                 <span class="count">{{ score.score|default:0 }}</span><br />
-                votes
+                vote{{ score.score|default:0|pluralize }}
               </div>
               <div class="answers">
                 <span class="count">{{ question.answer_set.count }}</span><br />
-                answers
+                answer{{ question.answer_set.count|pluralize }}
               </div>
             </div><!-- stats -->
           </div>
