@@ -7,11 +7,11 @@ def read(fname):
 setup(
     name = "django-qna",
     version = "0.1",
-    license = "Apache 2.0",
+    license = "BSD",
     description = "Small qna app for Django",
     long_description = read("README"),
-    url = "https://github.com/bazukas/django-qna",
-    author = "Azat Khasanshin",
+    url = "https://github.com/fosslabs/django-qna",
+    author = "Azat Khasanshin, Radik Fattakhov",
     author_email = "azatkhasanshin@gmail.com",
     packages = find_packages("src"),
     package_dir = {"": "src"},
@@ -19,7 +19,7 @@ setup(
     classifiers = [
         'Framework :: Django',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache License 2.0',
+        'License :: OSI Approved :: BSD',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP',

@@ -1,4 +1,21 @@
+Building:
+git clone git@github.com:bazukas/django-school.git
+cd django-school/
+python bootstrap.py
+./bin/buildout
+
+Running in a test project:
+./bin/django runserver
+
+Test admin:
+Login: admin
+Password: admin
+
 required applications:
 - django-tagging
 - django-voting
 - django.contrib.comments
+
+Contributors:
+Azat Khasanshin (azatkhasanshin@gmail.com)
+Radik Fattakhov
