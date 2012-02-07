@@ -4,6 +4,7 @@ from qna.models import Question
 from voting.views import xmlhttprequest_vote_on_object
 
 urlpatterns = patterns('',
+    (r'^question/ask/$', views.ask),
     (r'^question/(\d+)/$', views.question),
     (r'^question/(?P<object_id>\d+)/(?P<direction>up|down|clear)vote/$',
         xmlhttprequest_vote_on_object, dict(model=Question)),

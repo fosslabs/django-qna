@@ -54,9 +54,29 @@
                     Answered by <a href="#" class="answeredby">{{ answer.user.username }}</a>
                     <span class="date">{{ answer.date }}</span>
                   </div>
+                  <div class="acts"><a href="#">Add comment</div></div>
                 </div>
               </div>
             {% endfor %}
+            <div class="new-answer">
+              
+            <form action="">
+               <fieldset>
+                 <div class="clearfix">
+                   <label for="new-answer">Your answer</label>
+                   <div class="input">
+                     <textarea class="xxlarge" id="new-answer" name="new-answer" rows="3"></textarea>
+                     <span class="help-block">
+                       Put your answer here.
+                     </span>
+                   </div>
+                 </div>
+                 <div style="margin-left: 10px;">
+                   <input type="submit" class="btn primary pull-right" value="Answer">
+                 </div>
+               </fieldset>
+            </form>
+            </div>
           </div>
           <div class="span4"></div>
         </div>

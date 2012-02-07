@@ -11,3 +11,7 @@ def question_list(request):
     question_list = get_list_or_404(Question)
     c = {"question_list": question_list}
     return render(request, "qna/question_list.html", c)
+
+def ask(request):
+    c = {}
+    return render(request, "qna/ask.html", c)
