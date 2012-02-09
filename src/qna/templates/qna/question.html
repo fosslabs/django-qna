@@ -43,7 +43,7 @@
                   <div class="rating positive">{{ answer_score.score|default:0 }}</div>
                   <a href="#" class="vote down">-</a>
                   {% if answer == question.correct_answer %}
-                  <span class="label success" title="The question owner accepted this as the best answer Dec 31 at 21:30">Best</span>
+                  <span class="label success" title="The question owner accepted this as the best answer">Best</span>
                   {% endif %}
                 </div>
                 <div class="span11 answer-cell">
@@ -54,8 +54,47 @@
                     Answered by <a href="#" class="answeredby">{{ answer.user.username }}</a>
                     <span class="date">{{ answer.date }}</span>
                   </div>
-                  <div class="acts"><a href="#">Add comment</div></div>
                 </div>
+                <div class="comments-block">
+                  <!-- for comment in comments_list -->
+                  <div class="comment">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s - <a href="#">Username</a> <span class="meta">Feb 11 '10 at 15:24</span>
+                  </div>
+                  <div class="comment">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s - <a href="#">Username</a> <span class="meta">Feb 11 '10 at 15:24</span>
+                  </div>
+                  <div class="comment">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s - <a href="#">Username</a> <span class="meta">Feb 11 '10 at 15:24</span>
+                  </div>
+                  <!-- endfor -->
+                  <div class="new-comment">
+                  <form action="" style="display:none;" >
+                    <fieldset>
+                      <div class="clearfix">
+                          <textarea class="span11" id="new-comment" name="new-comment" rows="3"></textarea>
+                          <span class="help-block">
+                            Put your comment here.
+                          </span>
+                      </div>
+                      <div style="margin-left: 10px;">
+                        <input type="submit" class="btn pull-right" value="Add">
+                      </div>
+                    </fieldset>
+                  </form>
+                  <script type="text/javascript" language="javascript" charset="utf-8">
+                  // <![CDATA[
+                  $(document).ready(function(){
+                  	$(".comment-link").click(function(){
+                      $(this).parent().parent().children("form").toggle();
+                    });
+                  });
+                  // ]]>
+                  </script>
+                  <div class="acts">
+                    <a href="javascript:void(0);" class="comment-link">Add comment</a>
+                  </div>
+                  </div>
+                </div><!-- comments-block -->
               </div>
             {% endfor %}
             <div class="new-answer">
@@ -63,10 +102,10 @@
             <form action="">
                <fieldset>
                  <div class="clearfix">
-                   <label for="new-answer">Your answer</label>
-                   <div class="input">
-                     <textarea class="xxlarge" id="new-answer" name="new-answer" rows="3"></textarea>
-                     <span class="help-block">
+                   <div class="input" style="margin-left: 50px;">
+                     <label for="new-answer"><h4>Your answer</h5></label>
+                     <textarea class="span11" style="margin-left: 10px;" id="new-answer" name="new-answer" rows="3"></textarea>
+                     <span class="help-block" style="margin-left: 10px;">
                        Put your answer here.
                      </span>
                    </div>

@@ -94,3 +94,22 @@
 .question-list .question{
   border-bottom: 1px dashed #CCC;
 }
+
+.comments-block{
+  margin-left: 80px;
+}
+
+.comment{
+  color: #CCC;
+  border-bottom: 1px #DDD dashed;
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+}
+
+.comment:hover{
+  color: #444;
+}
+
+.comment .meta{
+  color: #DDD;
+}
