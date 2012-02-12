@@ -8,7 +8,7 @@ class Question(models.Model):
     text = models.TextField(_("Question text"))
     correct_answer = models.OneToOneField('Answer', null=True, blank=True, verbose_name=_("Answer"), related_name="+")
     tags = TagField(_("Tags"))
-    date = models.DateTimeField(_("Creation date"))
+    date = models.DateTimeField(_("Creation date"), auto_now_add=True)
     user = models.ForeignKey(User, verbose_name=_("User"))
 
     @models.permalink
@@ -25,7 +25,7 @@ class Question(models.Model):
 class Answer(models.Model):
     text = models.TextField(_("Answer text"))
     question = models.ForeignKey(Question, verbose_name=_("Question"))
-    date = models.DateTimeField(_("Creation date"))
+    date = models.DateTimeField(_("Creation date"), auto_now_add=True)
     user = models.ForeignKey(User, verbose_name=_("User"))
 
     def __unicode__(self):

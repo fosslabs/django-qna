@@ -3,9 +3,11 @@
 {% block content %}
         <div class="row">
           <div class="span12">
-            <form action="">
+            <form method="post" action="{% url qna.views.ask %}">
+              {% csrf_token %}
                <fieldset>
                  <legend>Ask new question</legend>
+                 {% if error %}<div class="alert alert-error">Something wrong happened!</div>{% endif %}
                  <div class="clearfix">
                    <label for="title">Title</label>
                    <div class="input">
@@ -13,11 +15,18 @@
                    </div>
                  </div>
                  <div class="clearfix">
+                   <label for="text">Question</label>
                    <div class="input">
-                     <textarea class="xxlarge" id="question" name="question" rows="3"></textarea>
+                     <textarea class="xxlarge" id="text" name="text" rows="3"></textarea>
                      <span class="help-block">
                        Insert your question here.
                      </span>
+                   </div>
+                 </div>
+                 <div class="clearfix">
+                   <label for="tags">Tags</label>
+                   <div class="input">
+                     <input class="xxlarge" id="tags" name="tags" size="30" type="text">
                    </div>
                  </div>
                  <div>

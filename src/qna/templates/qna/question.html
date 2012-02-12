@@ -1,6 +1,7 @@
 {% extends "qna/base.html" %}
 {% load tagging_tags %}
 {% load voting_tags %}
+{% load comments %}
 {% score_for_object question as score %}
 {% scores_for_objects question.answer_set.all as answer_score_dict %}
 {% block title %}{{question.title}}{% endblock %}
@@ -56,40 +57,37 @@
                   </div>
                 </div>
                 <div class="comments-block">
-                  <!-- for comment in comments_list -->
-                  <div class="comment">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s - <a href="#">Username</a> <span class="meta">Feb 11 '10 at 15:24</span>
-                  </div>
-                  <div class="comment">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s - <a href="#">Username</a> <span class="meta">Feb 11 '10 at 15:24</span>
-                  </div>
-                  <div class="comment">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s - <a href="#">Username</a> <span class="meta">Feb 11 '10 at 15:24</span>
-                  </div>
-                  <!-- endfor -->
+                  {% get_comment_list for answer as comment_list %}
+                  {% for comment in comment_list %}
+                    <div class="comment">
+                      {{ comment.comment }}
+                      <a href="#">{{ comment.user.username }}</a> <span class="meta">{{ comment.submit_date }}</span>
+                    </div>
+                  {% endfor %}
                   <div class="new-comment">
-                  <form action="" style="display:none;" >
-                    <fieldset>
-                      <div class="clearfix">
-                          <textarea class="span11" id="new-comment" name="new-comment" rows="3"></textarea>
-                          <span class="help-block">
-                            Put your comment here.
-                          </span>
-                      </div>
-                      <div style="margin-left: 10px;">
-                        <input type="submit" class="btn pull-right" value="Add">
-                      </div>
-                    </fieldset>
-                  </form>
-                  <script type="text/javascript" language="javascript" charset="utf-8">
-                  // <![CDATA[
-                  $(document).ready(function(){
-                  	$(".comment-link").click(function(){
-                      $(this).parent().parent().children("form").toggle();
+                    <form method="post" action="{% url qna.views.comment answer.id %}" style="display:none;" >
+                      {% csrf_token %}
+                      <fieldset>
+                        <div class="clearfix">
+                            <textarea class="span11" id="comment" name="comment" rows="3"></textarea>
+                            <span class="help-block">
+                              Put your comment here.
+                            </span>
+                        </div>
+                        <div style="margin-left: 10px;">
+                          <input type="submit" class="btn pull-right" value="Add">
+                        </div>
+                      </fieldset>
+                    </form>
+                    <script type="text/javascript" language="javascript" charset="utf-8">
+                    // <![CDATA[
+                    $(document).ready(function(){
+                      $(".comment-link").click(function(){
+                        $(this).parent().parent().children("form").toggle();
+                      });
                     });
-                  });
-                  // ]]>
-                  </script>
+                    // ]]>
+                    </script>
                   <div class="acts">
                     <a href="javascript:void(0);" class="comment-link">Add comment</a>
                   </div>
@@ -98,23 +96,24 @@
               </div>
             {% endfor %}
             <div class="new-answer">
-              
-            <form action="">
-               <fieldset>
-                 <div class="clearfix">
-                   <div class="input" style="margin-left: 50px;">
-                     <label for="new-answer"><h4>Your answer</h5></label>
-                     <textarea class="span11" style="margin-left: 10px;" id="new-answer" name="new-answer" rows="3"></textarea>
-                     <span class="help-block" style="margin-left: 10px;">
-                       Put your answer here.
-                     </span>
+              <form method="post" action="{% url qna.views.answer question.id %}">
+                {% csrf_token %}
+                 <fieldset>
+                   <div class="clearfix">
+                     <div class="input" style="margin-left: 50px;">
+                       <label for="text"><h4>Your answer</h5></label>
+                       {% if answer_error %}<div class="alert alert-error">Something wrong happened</div>{% endif %}              
+                       <textarea class="span11" style="margin-left: 10px;" id="text" name="text" rows="3"></textarea>
+                       <span class="help-block" style="margin-left: 10px;">
+                         Put your answer here.
+                       </span>
+                     </div>
                    </div>
-                 </div>
-                 <div style="margin-left: 10px;">
-                   <input type="submit" class="btn primary pull-right" value="Answer">
-                 </div>
-               </fieldset>
-            </form>
+                   <div style="margin-left: 10px;">
+                     <input type="submit" class="btn primary pull-right" value="Answer">
+                   </div>
+                 </fieldset>
+              </form>
             </div>
           </div>
           <div class="span4"></div>
